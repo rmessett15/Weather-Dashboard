@@ -31,8 +31,11 @@
 
       <div class="col s12 m4 l3 card-panel grey darken-1">
         <h5>Search for a City:</h5>
-        <input type="text">
-        <button>Search</button>
+        <form id="search-form">
+            <input id="city" type="text" placeholder="Enter city name"></input>
+            <!-- <input id="click" type="submit"></input> -->
+            <button type="submit" value="submit">Submit</button>
+        </form>
         <h5>Recently Viewed:</h5>
             <ul>
                 <li>Alabama</li>
@@ -43,7 +46,7 @@
 
       <div class="col s12 m8 l9 card-panel teal lighten-2">
         <section>
-            <h5>City Name and date 🌞</h5>
+            <h5 id="current-city">City Name and date 🌞</h5>
             <p>Temp:</p>
             <p>Wind:</p>
             <p>Humidity:</p>
