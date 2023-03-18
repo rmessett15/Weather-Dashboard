@@ -1,6 +1,9 @@
-// tries to grab values from local storage and if there is no data there JSON parse will fail, and it will use an empty list instead as backup
+// Tries to grab values from local storage and if there is no data, JSON parse will fail, and it will use an empty list instead as backup
 var recentSearches = JSON.parse(localStorage.getItem("searches")) || [];
 console.log(recentSearches);
+// My attempt to add to recently viewed
+var searchHistory = document.getElementById("recently-viewed");
+searchHistory.textContent = recentSearches;
 
 function getWeather(city) {
     var url = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=011d8600955301988250a993be42df9e";
@@ -13,15 +16,21 @@ function getWeather(city) {
         localStorage.setItem("city", JSON.stringify(data));
         setCurrentWeather(data.list[0]);
         setForecast(data.list);
-        // localStorage.getItem("city", JSON.parse(data));????
     })
 }
 
 function setCurrentWeather(weather) {
     console.log(weather.main.temp);
-    var currentTemperature = document.getElementById("current-temperature")
+    // To set current temp
+    var currentTemperature = document.getElementById("current-temperature");
     currentTemperature.textContent = "Temperature: " + weather.main.temp;
     console.log(weather.main.humidity);
+    // To set current wind
+    var currentWind = document.getElementById("current-wind");
+    currentWind.textContent = "Wind: " + weather.wind.speed;
+    // To set current humidity
+    var currentHumidity = document.getElementById("current-humidity");
+    currentHumidity.textContent = "Humidity: " + weather.main.humidity;
 }
 
 function setForecast(forecast) {
@@ -39,11 +48,28 @@ function setForecastDay(weather, dayNumber) {
     var day = document.getElementById("day-" + dayNumber)
     var dayList = [];
     var titleParagraph = document.createElement("p");
-    titleParagraph.textContent = "Day" + dayNumber;
+    titleParagraph.textContent = "Day " + dayNumber;
     dayList.push(titleParagraph);
+    // Date
+    // Icon
+    // Temp
     var tempParagraph = document.createElement("p");
-    tempParagraph.textContent = "Temperature: " + weather.main.temp;
+    tempParagraph.textContent = "Temp: " + weather.main.temp;
     dayList.push(tempParagraph);
+    day.replaceChildren(...dayList);
+    // Wind
+    var windParagraph = document.createElement("p");
+    windParagraph.textContent = "Wind: " + weather.wind.speed;
+    dayList.push(windParagraph);
+    day.replaceChildren(...dayList);
+    // Humidity
+    var humidityParagraph = document.createElement("p");
+    humidityParagraph.textContent = "Humidity: " + weather.main.humidity;
+    dayList.push(humidityParagraph);
+    day.replaceChildren(...dayList);
+    // Icon ??????????
+    var iconParagraph = document.createElement("p");
+    iconParagraph.textContent = "Icon: " + weather.weather[0];
     day.replaceChildren(...dayList);
 }
 
@@ -57,6 +83,15 @@ searchForm.addEventListener("submit", function(event) {
     getWeather(searchCity);
 });
 
+
+
+
+
+
+
+
+
+
 // function init() {
 //     var storedData = JSON.parse(localStorage.getItem("city"));
 // }
@@ -68,7 +103,6 @@ searchForm.addEventListener("submit", function(event) {
     // localStorage.setItem("city", JSON.stringify());
 // }
 
-
 // var city = document.getElementById("#city");
 // console.log(city, "city");
 // var button = document.getElementById("#click").addEventListener("click", getWeather(city))
@@ -76,11 +110,11 @@ searchForm.addEventListener("submit", function(event) {
 
 // getWeather("Colorado Springs");
 
-
-
 // function setCurrentCity() {
 //     var 
 // }
+
+
 
 
 
