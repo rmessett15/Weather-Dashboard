@@ -123,6 +123,15 @@ searchForm.addEventListener("submit", function(event) {
 // How do I get multiple cities saved into local storage and link the key name to each different city (so the key is equal to the city name, not just "city")
 // Make a button element each time a city is searched so it can be added to the list of recent searches and can be clicked again to reopen already stored data
 
+// Need to convert temp to fahrenheit
+// Need to add icons, date to 5 day forecast section
+// Need to add current city name and date to currently displayed section
+// Need to figure out recent search history (need buttons and a click event reloading that cities information)
+// Need to mess with the page responsiveness
+// Need to style page
+// Need to format all docs
+// Need to complete README.md
+
 
 
 
