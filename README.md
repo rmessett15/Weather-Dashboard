@@ -6,7 +6,7 @@ The idea behind this project was to create a work day scheduler so that users ca
 
 ## Live URL
 
-https://rmessett15.github.io/Work-Day-Scheduler/
+https://rmessett15.github.io/Weather-Dashboard/
 
 ## Screenshot
 
