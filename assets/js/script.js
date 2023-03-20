@@ -186,6 +186,8 @@ function executeSearch(searchCity) {
 // Need to complete README.md
 
 // Why do I stringify and parse in regards to putting in and pulling out of local storage
+// Why do my buttons keep adding more buttons when clicked
+// Page responsiveness
 
 
 
