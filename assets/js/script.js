@@ -6,6 +6,7 @@ console.log(recentSearches);
 var searchHistory = document.getElementById("recently-viewed");
 getWeather("Austin")
 
+// Function which fetches data from the open weather API
 function getWeather(city) {
     var url = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=011d8600955301988250a993be42df9e&units=imperial";
     fetch(url)
@@ -24,7 +25,7 @@ function getWeather(city) {
     })
 }
 
-// Convert kelvin to fahrenheit
+// Function to convert kelvin to fahrenheit
 function convertToFahrenheit(kelvin) {
     var kTemp = kelvin;
     var kToFar = (kTemp - 273.15) * 1.8 + 32;
@@ -34,8 +35,9 @@ function convertToFahrenheit(kelvin) {
 
 console.log(convertToFahrenheit(279.45));
 
+// Function to set current day forecast
 function setCurrentWeather(weather) {
-    // Current date
+    // To set current date
     var forecastDate = weather.dt;
     console.log(forecastDate);
     var convertTimeMilli = forecastDate * 1000;
@@ -44,7 +46,7 @@ function setCurrentWeather(weather) {
     console.log(newDate);
     var currentDate = document.getElementById("current-date");
     currentDate.innerHTML = newDate;
-    // Current Icon
+    // To set current icon
     var iconParagraphId = weather.weather[0].icon;
     var iconLink =
       "https://openweathermap.org/img/wn/" + iconParagraphId + ".png";
@@ -55,8 +57,6 @@ function setCurrentWeather(weather) {
     currentIcon.innerHTML = iconHTML;
     // To set current temp
     console.log(weather.main.temp);
-    // var kel = parseInt(weather.main.temp);
-    // console.log(kel);
     var currentTemperature = document.getElementById("current-temperature");
     var convert = convertToFahrenheit(weather.main.temp);
     console.log(convert);
@@ -69,6 +69,7 @@ function setCurrentWeather(weather) {
     currentHumidity.textContent = "Humidity: " + weather.main.humidity + " %";
     }
 
+// Loop made so I can iterate over the entire weeks worth of data but only grab every 8th index from my list array
 function setForecast(forecast) {
     for (var i = 0; i < forecast.length; i += 8) {
         console.log(forecast[i]);
@@ -76,6 +77,7 @@ function setForecast(forecast) {
     }
 }
 
+// Function to set 5 day forecast
 function setForecastDay(weather, dayNumber) {
   // 1. Get the div element for the day (using ID)
   // 2. Create an array for the new elements that you will add to the day
@@ -85,13 +87,11 @@ function setForecastDay(weather, dayNumber) {
   // Icon
   var iconParagraph = document.createElement("p");
   var iconParagraphId = weather.weather[0].icon;
-  var iconLink =
-    "https://openweathermap.org/img/wn/" + iconParagraphId + ".png";
+  var iconLink = "https://openweathermap.org/img/wn/" + iconParagraphId + ".png";
   console.log(iconLink);
   var iconHTML = '<img src="' + iconLink + '">';
   console.log(iconHTML);
-
-  // Date
+  // Date conversion from unix timestamp
   var forecastParagraph = document.createElement("p");
   var forecastDate = weather.dt;
   console.log(forecastDate);
@@ -99,14 +99,14 @@ function setForecastDay(weather, dayNumber) {
   var dateTime = new Date(convertTimeMilli);
   var newDate = dateTime.toLocaleDateString("en-US", { dateStyle: "short" });
   console.log(newDate);
-  // Day #
+  // Converted date appended to page
   var day = document.getElementById("day-" + dayNumber);
   var dayList = [];
   var titleParagraph = document.createElement("p");
   console.log(iconHTML);
   titleParagraph.innerHTML = newDate + iconHTML;
   dayList.push(titleParagraph);
-  // Temp
+  // Temperature
   var tempParagraph = document.createElement("p");
   tempParagraph.textContent = "Temp: " + weather.main.temp + " \xB0F";
   dayList.push(tempParagraph);
@@ -123,15 +123,19 @@ function setForecastDay(weather, dayNumber) {
   day.replaceChildren(...dayList);
 }
 
+// Adds event listener on submit button 
 var searchForm = document.getElementById("search-form");
 var city = document.getElementById("city");
 searchForm.addEventListener("submit", function(event) {
     event.preventDefault();
     var searchCity = city.value.trim()
+    // Adds searched city to local storage
     executeSearch(searchCity);
+    // Creates a button element with the most recently searched city and when clicked pulls the data of that city from local storage
     addRecentSearch(searchCity);
 });
 
+// Adds recently searched cities to button elements and when buttons are clicked, cities specific data is re-loaded to the page 
 function addRecentSearch(city) {
     // 1. Create a function for appending to recently viewed, which is run when a search is run
     // 2. In that function create a button element with the text of the search and append it to the recent searches list. Store this button in a variable
@@ -145,6 +149,7 @@ function addRecentSearch(city) {
     searchHistory.appendChild(recentButton);
 }
 
+// Adds searched city to local storage
 function executeSearch(searchCity) {
     recentSearches.push(searchCity);
     localStorage.setItem("searches", JSON.stringify(recentSearches));

@@ -10,51 +10,49 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <!-- Favicon icon link -->
     <link rel="icon" type="image/x-icon" href="/favicon_cloud_flash_weather_rain_snow_icon.png">
+    <!-- Title within head of document (title on tab) -->
     <title>Weather Dashboard</title>
 </head>
 
 <body>
 
+  <!-- Nav bar -->
   <nav>
     <div class="nav-wrapper blue darken-1">
       <a href="#" class="brand-logo center">Weather Dashboard</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <!-- <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">JavaScript</a></li> -->
-      </ul>
+      <ul id="nav-mobile" class="right hide-on-med-and-down"></ul>
     </div>
   </nav>
 
+  <!-- Container, class of row and class of column used for materialize grid and responsiveness of page -->
   <div class="container"></div>
     <div class="row">
 
       <div class="col s12 m4 l3 card-panel grey darken-1">
         <h5>Search for a City:</h5>
+        <!-- Search form (ie. Enter city name to get current and future weather conditions) -->
         <form id="search-form">
             <input id="city" type="text" placeholder="Enter city name"></input>
-            <!-- <input id="click" type="submit"></input> -->
             <button class="btn waves-effect waves-light hoverable" type="submit" value="submit">Submit</button>
         </form>
+        <!-- Recently viewed cities -->
         <h5>Recently Viewed:</h5>
-            <ul id="recently-viewed">
-                <!-- <li>Alabama</li>
-                <li>Colorado</li>
-                <li>Texas</li> -->
-            </ul>
+            <ul id="recently-viewed"></ul>
       </div>
 
+      <!-- Searched city current day (on page load the city of Austin will be default) -->
       <div class="col s12 m8 l9 card-panel teal lighten-2">
         <section>
-            <h5 id="current-city">Name and date 🌞</h5>
+            <h5 id="current-city"></h5>
             <span id="current-date"></span>
-            <p id="current-icon">Icon:</p>
-            <p id="current-temperature">Temp:</p>
-            <p id="current-wind">Wind:</p>
-            <p id="current-humidity">Humidity:</p>
+            <p id="current-icon"></p>
+            <p id="current-temperature"></p>
+            <p id="current-wind"></p>
+            <p id="current-humidity"></p>
         </section>
       </div>
 
+      <!-- 5 Day Forecast -->
       <h5>5-Day Forecast:</h5>
       <div class="row">
         <div class="col s12 m4 l2 #283593 indigo darken-3 white-text card-style" id="day-1"><p></p></div>
@@ -67,26 +65,8 @@
     </div>
   </div>
 
-
-
-
-
-
-
-    <!-- <h1>Weather Dashboard</h1>
-    <aside>
-        <h2>Search for a City:</h2>
-        <input type="text">
-        <button>Search</button>
-    </aside>
-    <section>This is where the city selected's data will go</section>
-    <article>
-        <h3>5-Day Forecast:</h3>
-    </article>
-    <footer></footer> -->
-
 <!-- Materialize script tag -->
-<!-- Do I need a jQuery tag? -->
+<!-- Would need a jQuery script tag if using JavaScript widgets -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <!-- JavaScript tag -->
 <script src="./assets/js/script.js"></script>
