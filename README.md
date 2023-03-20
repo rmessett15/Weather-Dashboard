@@ -14,7 +14,7 @@ https://rmessett15.github.io/Work-Day-Scheduler/
 
 ## Technologies Used
 
-This project utilizes HTML, CSS, JavaScript, Materialize........ Fontawesome.com, Google Fonts, DayJS CDN, and Moment CDN
+This project utilizes HTML, CSS, JavaScript, Materialize, and OpenWeather API (server-side API).
 
 ## Installation
 
@@ -25,11 +25,11 @@ This project utilizes HTML, CSS, JavaScript, Materialize........ Fontawesome.com
 
 ## Credits
 
-Worked with a a variety of students to complete this challenge (ie. Brian Hamlin & Chris McNamara), as well as a friend within the developer community (Brian Dillman). My tutoring session with Phillip Loy helped finalize re-appending my locally stored data back to the page.
+Worked with a close friend of mine within the developer community to pseudo-code challenge outline (Brian Dillman). Also worked with a tutor (Robert Kurle Jr.) to finalize re-appending current city, date, and icon to the page as well as finding a way to kill my recently searched buttons multiplying themselves when clicked.
 
 ## Features
 
-Features of this page include the users ability to save added events to local storage and the application re-appending the saved data to the application on page reload. It also utilizes two different CDN's to display the current time which were utilized and then passed through an iteration and conditional statement giving rise to the color coordinated time blocks the user sees.
+Features of this page include the users ability to load weather data from any city of their choosing and see real time data displayed to their page of the current conditions along with a 5 day forecast. Once a city has been searched for, the data attributed with that city will be stored in local storage and can then be re-appended to the page using the recent search buttons, which will allow data to be pulled from local storage rather than fetching from the API again (this will limit the amount of times the user will hit the API).
 
 ## How to Contribute
 
