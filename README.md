@@ -10,7 +10,7 @@ https://rmessett15.github.io/Work-Day-Scheduler/
 
 ## Screenshot
 
-![Screenshot-Weekly-Challenge-5](https://user-images.githubusercontent.com/120127903/224795456-a4266236-8b3b-46ab-a1af-8b655b0a2912.png)
+![Screenshot-week-6-challenge](https://user-images.githubusercontent.com/120127903/226476502-3a8bce9e-6816-4d7a-a7b6-10dd59a2cd8a.png)
 
 ## Technologies Used
 
